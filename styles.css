@@ -1,6 +1,6 @@
 /* General Styles */
 body {
-    font-family: 'Brittany Signature', cursive;
+    font-family: 'Aptos Display', sans-serif;
     margin: 0;
     padding: 0;
     height: 100vh;
@@ -457,6 +457,33 @@ h2 {
         word-wrap: break-word !important;
         overflow-wrap: break-word !important;
     }
+}
+
+/* Music Controls */
+.music-controls {
+    margin: 15px 0;
+    text-align: center;
+}
+
+.music-btn {
+    padding: 8px 16px;
+    margin: 0 5px;
+    font-size: 0.9em;
+    background: #004d40;
+    color: #fff;
+    border: 2px solid #1976d2;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s;
+}
+
+.music-btn:hover {
+    background: #1976d2;
+    color: #000000;
+}
+
+.music-btn.hidden {
+    display: none;
 }
 
 /* ===== FORCE MUSIC TAB TO MATCH OTHER SECTIONS (OVERRIDE) ===== */
