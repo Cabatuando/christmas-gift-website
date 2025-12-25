@@ -187,7 +187,7 @@ function createHearts() {
         heart.style.animationDelay = Math.random() * 8 + 's';
         heart.style.fontSize = Math.random() * 1 + 1 + 'em';
         heartsContainer.appendChild(heart);
-
+        
         // Remove heart after animation
         setTimeout(() => {
             heart.remove();
