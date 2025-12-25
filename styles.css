@@ -397,7 +397,7 @@ h2 {
 
 /* Mobile Responsiveness */
 @media (max-width: 600px) {
-    body {
+    body.scrollable {
         overflow-y: auto;
         height: auto;
     }
