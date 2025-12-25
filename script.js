@@ -58,6 +58,8 @@ function showWelcomeMessage() {
             setTimeout(() => {
                 document.getElementById('welcome-section').classList.remove('active');
                 document.getElementById('main-section').classList.add('active');
+                // Enable scrolling on mobile when main section is shown
+                document.body.classList.add('scrollable');
                 // Add floating animation to category buttons
                 document.querySelectorAll('.category-btn').forEach(btn => {
                     btn.classList.add('floating');
