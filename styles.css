@@ -475,7 +475,7 @@ h2 {
     border-radius: 5px;
     cursor: pointer;
     transition: background 0.3s, color 0.3s;
-}
+}  
 
 .music-btn:hover {
     background: #1976d2;
