@@ -69,7 +69,10 @@ function showWelcomeMessage() {
                 // Try to start background music when main section is shown
                 // This should work on mobile since user has already interacted (entered password)
                 const bgMusic = document.getElementById('background-music');
-                bgMusic.play().catch(e => {
+                bgMusic.play().then(() => {
+                    // Show pause button when music starts playing
+                    document.getElementById('pause-music').classList.remove('hidden');
+                }).catch(e => {
                     console.log('Background music autoplay blocked:', e);
                     // Show play button if autoplay fails
                     document.getElementById('play-music').classList.remove('hidden');
@@ -187,13 +190,31 @@ function createHearts() {
         heart.style.animationDelay = Math.random() * 8 + 's';
         heart.style.fontSize = Math.random() * 1 + 1 + 'em';
         heartsContainer.appendChild(heart);
-        
+
         // Remove heart after animation
         setTimeout(() => {
             heart.remove();
         }, 8000);
     }, 2000); // Add a new heart every 2 seconds
 }
+
+// Music control event listeners
+document.getElementById('play-music').addEventListener('click', function() {
+    const bgMusic = document.getElementById('background-music');
+    bgMusic.play().then(() => {
+        this.classList.add('hidden');
+        document.getElementById('pause-music').classList.remove('hidden');
+    }).catch(e => {
+        console.log('Failed to play music:', e);
+    });
+});
+
+document.getElementById('pause-music').addEventListener('click', function() {
+    const bgMusic = document.getElementById('background-music');
+    bgMusic.pause();
+    this.classList.add('hidden');
+    document.getElementById('play-music').classList.remove('hidden');
+});
 
 // Initialize snowflakes and hearts on page load
 window.addEventListener('load', () => {
