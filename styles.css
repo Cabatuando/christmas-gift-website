@@ -1,0 +1,486 @@
+/* General Styles */
+body {
+    font-family: 'Brittany Signature', cursive;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to bottom, #004d40, #000000, #1976d2); /* Emerald, Black, Blue gradient */
+    color: #fff;
+    overflow: hidden;
+    position: relative;
+}
+
+.section {
+    display: none;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.section.active {
+    display: flex;
+}
+
+.container {
+    text-align: center;
+    z-index: 10;
+    position: relative;
+    max-width: 800px;
+    padding: 20px;
+    width: 100%;
+}
+
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #1976d2; /* Blue */
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+h2 {
+    color: #004d40; /* Emerald */
+    margin-bottom: 15px;
+}
+
+/* Password Section */
+#password-section input {
+    padding: 10px;
+    font-size: 1.2em;
+    border: 2px solid #1976d2;
+    border-radius: 5px;
+    margin: 10px;
+    width: 250px;
+    max-width: 80%;
+}
+
+#password-section button {
+    padding: 10px 20px;
+    font-size: 1.2em;
+    background: #004d40;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#password-section button:hover {
+    background: #1976d2;
+}
+
+/* Welcome Section */
+#welcome-message {
+    font-size: 2em;
+    opacity: 0;
+    animation: fadeIn 2s ease-in-out 1s forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes floatWelcome {
+    0%, 100% {
+        transform: translateY(0) scale(1);
+    }
+    25% {
+        transform: translateY(-15px) scale(1.05);
+    }
+    50% {
+        transform: translateY(-25px) scale(1.1);
+    }
+    75% {
+        transform: translateY(-15px) scale(1.05);
+    }
+}
+
+.floating {
+    animation: float 3s ease-in-out infinite;
+}
+
+.floating.welcome-float {
+    animation: floatWelcome 2.5s ease-in-out infinite;
+}
+
+
+
+/* Main Section */
+.categories {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.category-btn {
+    padding: 10px 15px;
+    margin: 5px;
+    font-size: 1.1em;
+    background: #000000;
+    color: #fff;
+    border: 2px solid #1976d2;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s;
+}
+
+.category-btn:hover, .category-btn.active {
+    background: #1976d2;
+    color: #000000;
+}
+
+.content {
+    background: rgba(255, 255, 255, 0.9);
+    color: #333;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 600px;
+    margin: 20px auto;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    font-size: 0.9em;
+    line-height: 1.6;
+    display: none;
+    text-align: left;
+}
+
+.content.show {
+    display: block;
+}
+
+.content h2 {
+    text-align: left;
+}
+
+.content p {
+    margin: 10px 0;
+}
+
+/* Note Boxes */
+.note-box {
+    background: rgba(255, 255, 255, 0.95);
+    border: 2px solid #004d40;
+    border-radius: 8px;
+    padding: 15px;
+    margin: 10px 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    font-style: italic;
+    color: #333;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.note-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+    transition: left 0.5s;
+}
+
+.note-box:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+    text-shadow: 0 0 8px rgba(255,255,255,0.5);
+}
+
+.note-box:hover::before {
+    left: 100%;
+}
+
+/* Gallery Styles */
+.gallery-images {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5px;
+    justify-items: center;
+}
+
+.gallery-img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.gallery-img:hover {
+    transform: scale(1.1);
+}
+
+/* Music Photo Styles */
+#music .content {
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+.music-photo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 3px;
+    border: 2px solid #1976d2;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    background: linear-gradient(135deg, #ffcccc 0%, #ccffcc 100%); /* Soft red to green Christmas gradient */
+    aspect-ratio: 1; /* Makes each box square */
+    min-height: 70px;
+}
+
+/* New Music Layout Styles */
+.music-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.song-item {
+    display: flex;
+    gap: 10px;
+    align-items: stretch;
+}
+
+.music-photo {
+    width: 60px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+    border: 1px solid #1976d2;
+    transition: transform 0.2s ease;
+    flex-shrink: 0;
+}
+
+.music-photo:hover {
+    transform: scale(1.05);
+}
+
+.music-explanation {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.95);
+    border-left: 3px solid #1976d2;
+    border-radius: 4px;
+    padding: 6px 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    font-size: 0.8em;
+    line-height: 1.3;
+    transition: transform 0.3s ease;
+}
+
+.music-explanation:hover {
+    transform: scale(1.05);
+}
+
+.music-explanation h3 {
+    margin: 0 0 4px 0;
+    font-size: 0.9em;
+    color: #004d40;
+}
+
+.music-explanation p {
+    margin: 2px 0;
+    font-size: 0.75em;
+}
+
+/* Responsive: on small screens, photo goes on top and message below */
+@media (max-width: 600px) {
+    .song-item {
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .music-photo {
+        width: 80px;
+        height: 80px;
+    }
+}
+
+
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.9);
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    animation: zoom 0.6s;
+}
+
+@keyframes zoom {
+    from {transform:scale(0)}
+    to {transform:scale(1)}
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Snowflakes Animation */
+.snowflakes {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.snowflake {
+    position: absolute;
+    color: #fff;
+    font-size: 1em;
+    animation: fall 10s linear infinite;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-100vh) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+
+
+/* Mobile Responsiveness */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 2em;
+    }
+    .categories {
+        flex-direction: column;
+        align-items: center;
+    }
+    .category-btn {
+        width: 80%;
+        margin: 5px 0;
+    }
+    .content {
+        padding: 15px;
+        font-size: 1em;
+    }
+    #password-section input {
+        width: 90%;
+    }
+    .modal-content {
+        width: 90%;
+        max-width: none;
+    }
+    .close {
+        font-size: 30px;
+        top: 10px;
+        right: 20px;
+    }
+}
+
+/* Mobile Responsiveness for Music Section */
+@media (max-width: 768px) {
+    .song-item {
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 12px !important;
+    }
+
+    .music-photo {
+        width: 100px !important;
+        height: 100px !important;
+        margin-bottom: 8px !important;
+    }
+
+    .music-explanation {
+        width: 100% !important;
+        text-align: center !important;
+        padding: 12px !important;
+    }
+
+    .music-explanation h3 {
+        font-size: 1.1rem !important;
+        margin-bottom: 8px !important;
+    }
+
+    .music-explanation p {
+        font-size: 1rem !important;
+        line-height: 1.8 !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+    }
+}
+
+/* ===== FORCE MUSIC TAB TO MATCH OTHER SECTIONS (OVERRIDE) ===== */
+#music {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+/* if you have a wrapper like .music-content or #music-content */
+#music .music-content,
+#music .music-layout {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+/* make each music card stretch full width */
+#music .song-item {
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+/* optional: make the description area take the remaining space */
+#music .music-explanation {
+  flex: 1 !important;
+  min-width: 0 !important;
+}
