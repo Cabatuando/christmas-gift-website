@@ -461,6 +461,16 @@ h2 {
         word-wrap: break-word !important;
         overflow-wrap: break-word !important;
     }
+
+    .music-controls {
+        margin: 10px 0 !important;
+    }
+
+    .music-btn {
+        padding: 6px 12px !important;
+        font-size: 0.8em !important;
+        margin: 0 3px !important;
+    }
 }
 
 /* Music Controls */
