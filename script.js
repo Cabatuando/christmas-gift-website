@@ -66,20 +66,22 @@ function showWelcomeMessage() {
                 });
                 // Add floating animation to the main title
                 document.querySelector('h1').classList.add('floating');
+                // Show music controls immediately
+                document.getElementById('play-music').classList.remove('hidden');
                 // Try to start background music when main section is shown
                 // This should work on mobile since user has already interacted (entered password)
                 const bgMusic = document.getElementById('background-music');
                 bgMusic.play().then(() => {
-                    // Show pause button when music starts playing
+                    // Hide play button and show pause button when music starts playing
+                    document.getElementById('play-music').classList.add('hidden');
                     document.getElementById('pause-music').classList.remove('hidden');
                 }).catch(e => {
                     console.log('Background music autoplay blocked:', e);
-                    // Show play button if autoplay fails
-                    document.getElementById('play-music').classList.remove('hidden');
+                    // Keep play button visible if autoplay fails
                 });
-            }, 2000);
+            }, 1000); // Reduced from 2000ms to 1000ms
         }
-    }, 2000);
+    }, 1500); // Reduced from 2000ms to 1500ms
 }
 
 // Category click handlers
