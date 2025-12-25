@@ -397,6 +397,10 @@ h2 {
 
 /* Mobile Responsiveness */
 @media (max-width: 600px) {
+    body {
+        overflow-y: auto;
+        height: auto;
+    }
     h1 {
         font-size: 2em;
     }
@@ -475,7 +479,7 @@ h2 {
     border-radius: 5px;
     cursor: pointer;
     transition: background 0.3s, color 0.3s;
-}  
+}
 
 .music-btn:hover {
     background: #1976d2;
